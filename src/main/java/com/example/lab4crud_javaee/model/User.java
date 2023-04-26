@@ -1,13 +1,11 @@
 package com.example.lab4crud_javaee.model;
+
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import javax.persistence.*;
 
 import java.util.Date;
 
@@ -52,15 +50,6 @@ public class User {
     @Column(name = "updated_by", nullable = false)
     @LastModifiedBy
     private String updatedBy;
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public long getId() {
-        return id;
-    }
 
     /**
      * Sets id.
@@ -211,4 +200,12 @@ public class User {
                 '}';
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
+
